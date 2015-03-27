@@ -30,7 +30,7 @@ module SportNgin
       # Waits until the block evaluates to true or times out.
       #
       # @example
-      #   SportNgin::Watir::Wait.until { browser.text_field(:name => "new_user_first_name").visible? }
+      #   SportNgin::WatirWait.until { browser.text_field(:name => "new_user_first_name").visible? }
       #
       # @param [Fixnum] timeout How long to wait in seconds
       # @param [String] message Message to raise if timeout is exceeded
@@ -46,7 +46,7 @@ module SportNgin
       # Wait while the block evaluates to true or times out.
       #
       # @example
-      #   SportNgin::Watir::Wait.while { browser.text_field(:name => "abrakadbra").present? }
+      #   SportNgin::WatirWait.while { browser.text_field(:name => "abrakadbra").present? }
       #
       # @param [Fixnum] timeout How long to wait in seconds
       # @param [String] message Message to raise if timeout is exceeded
@@ -118,7 +118,7 @@ module SportNgin
         raise NoMethodError, "undefined method `#{m}' for #{@element.inspect}:#{@element.class}"
       end
 
-      SportNgin::Watir::Wait.until(@timeout, @message) { @element.present? }
+      SportNgin::WatirWait.until(@timeout, @message) { @element.present? }
 
       @element.__send__(m, *args, &block)
     end
@@ -141,8 +141,8 @@ module SportNgin
     #
     # @param [Fixnum] timeout seconds to wait before timing out
     #
-    # @see SportNgin::Watir::Wait
-    # @see SportNgin::Watir::Element#present?
+    # @see SportNgin::WatirWait
+    # @see SportNgin::WatirElement#present?
     #
 
     def when_present(timeout = nil)
@@ -150,7 +150,7 @@ module SportNgin
       message = "waiting for #{selector_string} to become present"
 
       if block_given?
-        SportNgin::Watir::Wait.until(timeout, message) { present? }
+        SportNgin::WatirWait.until(timeout, message) { present? }
         yield self
       else
         WhenPresentDecorator.new(self, timeout, message)
@@ -165,14 +165,14 @@ module SportNgin
     #
     # @param [Fixnum] timeout seconds to wait before timing out
     #
-    # @see SportNgin::Watir::Wait
-    # @see SportNgin::Watir::Element#present?
+    # @see SportNgin::WatirWait
+    # @see SportNgin::WatirElement#present?
     #
 
     def wait_until_present(timeout = nil)
       timeout ||= Watir.default_timeout
       message = "waiting for #{selector_string} to become present"
-      SportNgin::Watir::Wait.until(timeout, message) { present? }
+      SportNgin::WatirWait.until(timeout, message) { present? }
     end
 
     #
@@ -183,14 +183,14 @@ module SportNgin
     #
     # @param [Fixnum] timeout seconds to wait before timing out
     #
-    # @see SportNgin::Watir::Wait
-    # @see SportNgin::Watir::Element#present?
+    # @see SportNgin::WatirWait
+    # @see SportNgin::WatirElement#present?
     #
 
     def wait_while_present(timeout = nil)
       timeout ||= Watir.default_timeout
       message = "waiting for #{selector_string} to disappear"
-      SportNgin::Watir::Wait.while(timeout, message) { present? }
+      SportNgin::WatirWait.while(timeout, message) { present? }
     rescue Selenium::WebDriver::Error::StaleElementReferenceError
       # it's not present
     end

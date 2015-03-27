@@ -34,7 +34,7 @@ module SportNgin
     # Returns row of this table with given index.
     #
     # @param [Fixnum] idx
-    # @return SportNgin::Watir::TableRow
+    # @return SportNgin::WatirTableRow
     #
 
     def [](idx)

@@ -9,7 +9,7 @@ module SportNgin
     #
     # Get the n'th cell (<th> or <td>) of this row
     #
-    # @return SportNgin::Watir::TableCell
+    # @return SportNgin::WatirTableCell
     #
 
     def [](idx)

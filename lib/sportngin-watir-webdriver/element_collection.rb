@@ -23,7 +23,7 @@ module SportNgin
     #     puts div.text
     #   end
     #
-    # @yieldparam [SportNgin::Watir::Element] element Iterate through the elements in this collection.
+    # @yieldparam [SportNgin::WatirElement] element Iterate through the elements in this collection.
     #
 
     def each(&blk)
@@ -48,7 +48,7 @@ module SportNgin
     # instance even if the index is out of bounds.
     #
     # @param [Fixnum] idx Index of wanted element, 0-indexed
-    # @return [SportNgin::Watir::Element] Returns an instance of a SportNgin::Watir::Element subclass
+    # @return [SportNgin::WatirElement] Returns an instance of a SportNgin::WatirElement subclass
     #
 
     def [](idx)
@@ -58,7 +58,7 @@ module SportNgin
     #
     # First element of this collection
     #
-    # @return [SportNgin::Watir::Element] Returns an instance of a SportNgin::Watir::Element subclass
+    # @return [SportNgin::WatirElement] Returns an instance of a SportNgin::WatirElement subclass
     #
 
     def first
@@ -68,7 +68,7 @@ module SportNgin
     #
     # Last element of the collection
     #
-    # @return [SportNgin::Watir::Element] Returns an instance of a SportNgin::Watir::Element subclass
+    # @return [SportNgin::WatirElement] Returns an instance of a SportNgin::WatirElement subclass
     #
 
     def last
@@ -78,7 +78,7 @@ module SportNgin
     #
     # This collection as an Array.
     #
-    # @return [Array<SportNgin::Watir::Element>]
+    # @return [Array<SportNgin::WatirElement>]
     #
 
     def to_a

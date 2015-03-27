@@ -2,7 +2,7 @@
 module SportNgin
 	module Watir
   class ElementLocator
-    include SportNgin::Watir::Exception
+    include SportNgin::WatirException
 
     WD_FINDERS = [
       :class,

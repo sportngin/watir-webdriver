@@ -1,4 +1,4 @@
-SportNgin::Watir::Atoms.load :selectText
+SportNgin::WatirAtoms.load :selectText
 
 module SportNgin
 	module Watir

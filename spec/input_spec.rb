@@ -1,6 +1,6 @@
 require File.expand_path('watirspec/spec_helper', File.dirname(__FILE__))
 
-describe SportNgin::WatirInput do
+describe SportNgin::Watir::Input do
 
   before do
     browser.goto WatirSpec.url_for("forms_with_input_elements.html")

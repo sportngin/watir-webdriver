@@ -1,6 +1,6 @@
 require File.expand_path("spec_helper", File.dirname(__FILE__))
 
-describe SportNgin::WatirElementLocator do
+describe SportNgin::Watir::ElementLocator do
   include LocatorSpecHelper
 
   describe "finds a single element" do
@@ -129,7 +129,7 @@ describe SportNgin::WatirElementLocator do
           :href     => "foo"
         }
 
-        locate_one selector, SportNgin::WatirAnchor.attributes
+        locate_one selector, SportNgin::Watir::Anchor.attributes
       end
 
       it "wraps :type attribute with translate() for upper case values" do
@@ -141,7 +141,7 @@ describe SportNgin::WatirElementLocator do
           :type    , "file",
         ]
 
-        locate_one selector, SportNgin::WatirInput.attributes
+        locate_one selector, SportNgin::Watir::Input.attributes
       end
 
       it "uses the corresponding <label>'s @for attribute or parent::label when locating by label" do
@@ -154,14 +154,14 @@ describe SportNgin::WatirElementLocator do
           :label   , "foo"
         ]
 
-        locate_one selector, SportNgin::WatirInput.attributes
+        locate_one selector, SportNgin::Watir::Input.attributes
       end
 
       it "uses label attribute if it is valid for element" do
         expect_one :xpath, ".//option[@label='foo']"
 
         selector = { :tag_name => "option", :label => "foo" }
-        locate_one selector, SportNgin::WatirOption.attributes
+        locate_one selector, SportNgin::Watir::Option.attributes
       end
 
       it "translates ruby attribute names to content attribute names" do
@@ -176,7 +176,7 @@ describe SportNgin::WatirElementLocator do
           :http_equiv => "foo"
         }
 
-        locate_one selector, SportNgin::WatirMeta.attributes
+        locate_one selector, SportNgin::Watir::Meta.attributes
 
         # TODO: check edge cases
       end
@@ -349,7 +349,7 @@ describe SportNgin::WatirElementLocator do
         :xpath    => "//div"
       }
 
-      expect(locate_one(selector, SportNgin::WatirInput.attributes)).to be_nil
+      expect(locate_one(selector, SportNgin::Watir::Input.attributes)).to be_nil
     end
 
     describe "errors" do
@@ -365,10 +365,10 @@ describe SportNgin::WatirElementLocator do
 
       it "raises a MissingWayOfFindingObjectException if the attribute is not valid" do
         bad_selector = {:tag_name => "input", :href => "foo"}
-        valid_attributes = SportNgin::WatirInput.attributes
+        valid_attributes = SportNgin::Watir::Input.attributes
 
         expect { locate_one(bad_selector, valid_attributes) }.to \
-        raise_error(SportNgin::WatirException::MissingWayOfFindingObjectException, "invalid attribute: :href")
+        raise_error(SportNgin::Watir::Exception::MissingWayOfFindingObjectException, "invalid attribute: :href")
       end
     end
   end

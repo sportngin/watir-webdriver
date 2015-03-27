@@ -41,7 +41,7 @@ module SportNgin
         end
       end
 
-      @timer = SportNgin::WatirWait::Timer.new
+      @timer = SportNgin::Watir::Wait::Timer.new
       @default_timeout = 20
 
 
@@ -448,7 +448,7 @@ module SportNgin
     # Returns true if the element exists and is visible on the page.
     #
     # @return [Boolean]
-    # @see SportNgin::WatirWait
+    # @see SportNgin::Watir::Wait
     #
 
     def present?
@@ -492,7 +492,7 @@ module SportNgin
     #
     # @example
     #   browser.element(:xpath => "//input[@type='submit']").to_subtype
-    #   #=> #<SportNgin::WatirButton>
+    #   #=> #<SportNgin::Watir::Button>
     #
 
     def to_subtype
@@ -524,7 +524,7 @@ module SportNgin
     #
     # Returns browser.
     #
-    # @return [SportNgin::WatirBrowser]
+    # @return [SportNgin::Watir::Browser]
     #
 
     def browser
@@ -604,8 +604,8 @@ module SportNgin
     end
 
     def assert_is_element(obj)
-      unless obj.kind_of? SportNgin::WatirElement
-        raise TypeError, "execpted SportNgin::WatirElement, got #{obj.inspect}:#{obj.class}"
+      unless obj.kind_of? SportNgin::Watir::Element
+        raise TypeError, "execpted SportNgin::Watir::Element, got #{obj.inspect}:#{obj.class}"
       end
     end
 

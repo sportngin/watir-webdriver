@@ -10,7 +10,7 @@ module SportNgin
 
   class Button < HTMLElement
 
-    inherit_attributes_from SportNgin::WatirInput
+    inherit_attributes_from SportNgin::Watir::Input
 
     VALID_TYPES = %w[button reset submit image]
 

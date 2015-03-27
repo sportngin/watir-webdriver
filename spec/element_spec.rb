@@ -1,6 +1,6 @@
 require File.expand_path('watirspec/spec_helper', File.dirname(__FILE__))
 
-describe SportNgin::WatirElement do
+describe SportNgin::Watir::Element do
 
   describe '#present?' do
     before do

@@ -16,7 +16,7 @@ Example
 
 require 'watir-webdriver'
 
-browser = SportNgin::WatirBrowser.new :firefox
+browser = SportNgin::Watir::Browser.new :firefox
 browser.goto "http://google.com"
 browser.text_field(:name => 'q').set("WebDriver rocks!")
 browser.button(:name => 'btnG').click

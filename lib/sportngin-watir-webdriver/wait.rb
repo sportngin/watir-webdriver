@@ -2,8 +2,7 @@
 require 'forwardable'
 require 'watir-webdriver/wait/timer'
 
-module SportNgin
-	module Watir
+module Watir
   module Wait
 
     class TimeoutError < StandardError ; end
@@ -30,7 +29,7 @@ module SportNgin
       # Waits until the block evaluates to true or times out.
       #
       # @example
-      #   SportNgin::WatirWait.until { browser.text_field(:name => "new_user_first_name").visible? }
+      #   Watir::Wait.until { browser.text_field(:name => "new_user_first_name").visible? }
       #
       # @param [Fixnum] timeout How long to wait in seconds
       # @param [String] message Message to raise if timeout is exceeded
@@ -46,7 +45,7 @@ module SportNgin
       # Wait while the block evaluates to true or times out.
       #
       # @example
-      #   SportNgin::WatirWait.while { browser.text_field(:name => "abrakadbra").present? }
+      #   Watir::Wait.while { browser.text_field(:name => "abrakadbra").present? }
       #
       # @param [Fixnum] timeout How long to wait in seconds
       # @param [String] message Message to raise if timeout is exceeded
@@ -118,7 +117,7 @@ module SportNgin
         raise NoMethodError, "undefined method `#{m}' for #{@element.inspect}:#{@element.class}"
       end
 
-      SportNgin::WatirWait.until(@timeout, @message) { @element.present? }
+      Watir::Wait.until(@timeout, @message) { @element.present? }
 
       @element.__send__(m, *args, &block)
     end
@@ -141,8 +140,8 @@ module SportNgin
     #
     # @param [Fixnum] timeout seconds to wait before timing out
     #
-    # @see SportNgin::WatirWait
-    # @see SportNgin::WatirElement#present?
+    # @see Watir::Wait
+    # @see Watir::Element#present?
     #
 
     def when_present(timeout = nil)
@@ -150,7 +149,7 @@ module SportNgin
       message = "waiting for #{selector_string} to become present"
 
       if block_given?
-        SportNgin::WatirWait.until(timeout, message) { present? }
+        Watir::Wait.until(timeout, message) { present? }
         yield self
       else
         WhenPresentDecorator.new(self, timeout, message)
@@ -165,14 +164,14 @@ module SportNgin
     #
     # @param [Fixnum] timeout seconds to wait before timing out
     #
-    # @see SportNgin::WatirWait
-    # @see SportNgin::WatirElement#present?
+    # @see Watir::Wait
+    # @see Watir::Element#present?
     #
 
     def wait_until_present(timeout = nil)
       timeout ||= Watir.default_timeout
       message = "waiting for #{selector_string} to become present"
-      SportNgin::WatirWait.until(timeout, message) { present? }
+      Watir::Wait.until(timeout, message) { present? }
     end
 
     #
@@ -183,18 +182,17 @@ module SportNgin
     #
     # @param [Fixnum] timeout seconds to wait before timing out
     #
-    # @see SportNgin::WatirWait
-    # @see SportNgin::WatirElement#present?
+    # @see Watir::Wait
+    # @see Watir::Element#present?
     #
 
     def wait_while_present(timeout = nil)
       timeout ||= Watir.default_timeout
       message = "waiting for #{selector_string} to disappear"
-      SportNgin::WatirWait.while(timeout, message) { present? }
+      Watir::Wait.while(timeout, message) { present? }
     rescue Selenium::WebDriver::Error::StaleElementReferenceError
       # it's not present
     end
 
   end # EventuallyPresent
 end # Watir
-end # SportNgin

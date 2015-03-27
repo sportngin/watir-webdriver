@@ -1,7 +1,6 @@
-SportNgin::WatirAtoms.load :selectText
+Watir::Atoms.load :selectText
 
-module SportNgin
-	module Watir
+module Watir
   class Element
     def select_text(str)
       assert_exists
@@ -9,4 +8,3 @@ module SportNgin
     end
   end # Element
 end # Watir
-end # SportNgin

@@ -1,6 +1,6 @@
 require File.expand_path('../watirspec/spec_helper', __FILE__)
 
-describe SportNgin::WatirElement do
+describe Watir::Element do
   describe "#click" do
     before {
       browser.goto WatirSpec.url_for('clicks.html', :needs_server => true)

@@ -1,8 +1,7 @@
 # encoding: utf-8
-module SportNgin
-	module Watir
+module Watir
   class Select < HTMLElement
-    include SportNgin::WatirException
+    include Watir::Exception
 
     #
     # Returns true if this element is enabled
@@ -32,7 +31,7 @@ module SportNgin
     #
     # Gets all the options in the select list
     #
-    # @return [SportNgin::WatirOptionCollection]
+    # @return [Watir::OptionCollection]
     #
 
     def options
@@ -57,7 +56,7 @@ module SportNgin
     # If this is a multi-select and several options match the value given, all will be selected.
     #
     # @param [String, Regexp] str_or_rx
-    # @raise [SportNgin::WatirException::NoValueFoundException] if the value does not exist.
+    # @raise [Watir::Exception::NoValueFoundException] if the value does not exist.
     # @return [String] The text of the option selected. If multiple options match, returns the first match.
     #
 
@@ -71,7 +70,7 @@ module SportNgin
     # @see +select+
     #
     # @param [String, Regexp] str_or_rx
-    # @raise [SportNgin::WatirException::NoValueFoundException] if the value does not exist.
+    # @raise [Watir::Exception::NoValueFoundException] if the value does not exist.
     # @return [String] The option selected. If multiple options match, returns the first match
     #
 
@@ -83,7 +82,7 @@ module SportNgin
     # Returns true if any of the selected options' text or label matches the given value.
     #
     # @param [String, Regexp] str_or_rx
-    # @raise [SportNgin::WatirException::UnknownObjectException] if the options do not exist
+    # @raise [Watir::Exception::UnknownObjectException] if the options do not exist
     # @return [Boolean]
     #
 
@@ -118,7 +117,7 @@ module SportNgin
     #
     # Returns an array of currently selected options.
     #
-    # @return [Array<SportNgin::WatirOption>]
+    # @return [Array<Watir::Option>]
     #
 
     def selected_options
@@ -236,4 +235,3 @@ module SportNgin
     Watir.tag_to_class[:select_list] = Select
   end # Container
 end # Watir
-end # SportNgin

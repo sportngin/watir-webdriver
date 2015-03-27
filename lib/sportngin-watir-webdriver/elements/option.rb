@@ -1,6 +1,5 @@
 # encoding: utf-8
-module SportNgin
-	module Watir
+module Watir
 
   #
   # Represents an option in a select list.
@@ -76,4 +75,3 @@ module SportNgin
 
   end # Option
 end # Watir
-end # SportNgin

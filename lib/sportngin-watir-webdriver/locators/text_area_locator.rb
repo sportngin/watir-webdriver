@@ -1,5 +1,4 @@
-module SportNgin
-	module Watir
+module Watir
   class TextAreaLocator < ElementLocator
 
     private
@@ -19,4 +18,3 @@ module SportNgin
 
   end # TextAreaLocator
 end # Watir
-end # SportNgin

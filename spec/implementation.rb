@@ -18,7 +18,7 @@ class ImplementationConfig
 
   def set_webdriver
     @imp.name          = :webdriver
-    @imp.browser_class = SportNgin::WatirBrowser
+    @imp.browser_class = Watir::Browser
   end
 
   def set_browser_args

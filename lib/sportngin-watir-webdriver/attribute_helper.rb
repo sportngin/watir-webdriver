@@ -1,5 +1,4 @@
-module SportNgin
-	module Watir
+module Watir
 
   #
   # @private
@@ -95,4 +94,3 @@ module SportNgin
 
   end # AttributeHelper
 end # Watir
-end # SportNgin

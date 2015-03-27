@@ -2,8 +2,7 @@
 
 require 'tsort'
 
-module SportNgin
-	module Watir
+module Watir
   module HTML
     class IDLSorter
       include TSort
@@ -48,4 +47,3 @@ module SportNgin
     end # IDLSorter
   end # HTML
 end # Watir
-end # SportNgin

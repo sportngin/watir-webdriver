@@ -1,7 +1,6 @@
 # encoding: utf-8
 
-module SportNgin
-	module Watir
+module Watir
   module HTML
     class SpecExtractor
 
@@ -163,4 +162,3 @@ module SportNgin
     end # SpecExtractor
   end # HTML
 end # Watir
-end # SportNgin

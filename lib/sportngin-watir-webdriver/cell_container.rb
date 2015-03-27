@@ -1,5 +1,4 @@
-module SportNgin
-	module Watir
+module Watir
   module CellContainer
 
     #
@@ -30,4 +29,3 @@ module SportNgin
 
   end # CellContainer
 end # Watir
-end # SportNgin

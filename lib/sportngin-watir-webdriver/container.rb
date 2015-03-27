@@ -1,6 +1,5 @@
 # encoding: utf-8
-module SportNgin
-	module Watir
+module Watir
   module Container
     include XpathSupport
     include Atoms
@@ -51,4 +50,3 @@ module SportNgin
 
   end # Container
 end # Watir
-end # SportNgin

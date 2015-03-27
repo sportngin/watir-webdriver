@@ -1,5 +1,4 @@
-module SportNgin
-	module Watir
+module Watir
   module Atoms
 
     ATOMS = {}
@@ -23,4 +22,3 @@ module SportNgin
 
   end # Atoms
 end # Watir
-end # SportNgin

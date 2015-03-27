@@ -1,7 +1,6 @@
 require 'yaml'
 
-module SportNgin
-	module Watir
+module Watir
   class Cookies
 
     def initialize(control)
@@ -131,4 +130,3 @@ module SportNgin
 
   end # Cookies
 end # Watir
-end # SportNgin

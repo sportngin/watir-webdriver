@@ -1,5 +1,4 @@
-module SportNgin
-	module Watir
+module Watir
   class DList < HTMLElement
 
     def to_hash
@@ -11,4 +10,3 @@ module SportNgin
 
   end # DList
 end # Watir
-end # SportNgin

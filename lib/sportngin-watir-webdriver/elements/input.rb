@@ -1,6 +1,5 @@
 # encoding: utf-8
-module SportNgin
-	module Watir
+module Watir
   class Input < HTMLElement
 
     alias_method :readonly?, :read_only?
@@ -17,4 +16,3 @@ module SportNgin
 
   end # Input
 end # Watir
-end # SportNgin

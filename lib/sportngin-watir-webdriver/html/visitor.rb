@@ -1,7 +1,6 @@
 # encoding: utf-8
 
-module SportNgin
-	module Watir
+module Watir
   module HTML
     class Visitor < WebIDL::RubySexpVisitor
 
@@ -165,4 +164,3 @@ module SportNgin
     end # Visitor
   end # Support
 end # Watir
-end # SportNgin

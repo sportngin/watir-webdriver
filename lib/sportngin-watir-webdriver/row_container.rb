@@ -1,5 +1,4 @@
-module SportNgin
-	module Watir
+module Watir
   module RowContainer
 
     #
@@ -41,4 +40,3 @@ module SportNgin
 
   end # RowContainer
 end # Watir
-end # SportNgin

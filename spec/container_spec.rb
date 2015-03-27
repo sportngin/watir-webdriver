@@ -1,7 +1,7 @@
 require File.expand_path('watirspec/spec_helper', File.dirname(__FILE__))
 
-describe SportNgin::WatirContainer do
-  before { @container = Object.new.extend(SportNgin::WatirContainer) }
+describe Watir::Container do
+  before { @container = Object.new.extend(Watir::Container) }
 
   describe "#extract_selector" do
     before do

@@ -1,5 +1,4 @@
-module SportNgin
-	module Watir
+module Watir
   module HTML
     module Util
 
@@ -20,5 +19,4 @@ module SportNgin
     end # Util
   end # HTML
 end # Watir
-end # SportNgin
 

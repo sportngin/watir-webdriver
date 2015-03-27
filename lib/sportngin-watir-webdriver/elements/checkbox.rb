@@ -1,7 +1,6 @@
 # encoding: utf-8
 
-module SportNgin
-	module Watir
+module Watir
   class CheckBox < Input
 
     #
@@ -59,4 +58,3 @@ module SportNgin
     end
   end # CheckBoxCollection
 end # Watir
-end # SportNgin

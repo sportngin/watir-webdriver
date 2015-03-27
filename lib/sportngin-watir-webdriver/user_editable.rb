@@ -1,5 +1,4 @@
-module SportNgin
-	module Watir
+module Watir
   module UserEditable
 
     #
@@ -37,4 +36,3 @@ module SportNgin
 
   end # UserEditable
 end # Watir
-end # SportNgin

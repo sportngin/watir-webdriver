@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Watir
+module SportNginWatir
   module HTML
     class Visitor < WebIDL::RubySexpVisitor
 
@@ -53,7 +53,7 @@ module Watir
       # TODO: do everything in the visitor somehow?
       # problem is we lack the tag name info while walking the interface AST
       # #
-      # # Watir generator visitor interface
+      # # SportNginWatir generator visitor interface
       # #
       #
       # def visit_tag(tag_name, interface_name)
@@ -163,4 +163,4 @@ module Watir
 
     end # Visitor
   end # Support
-end # Watir
+end # SportNginWatir

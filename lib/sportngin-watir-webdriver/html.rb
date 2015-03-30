@@ -16,8 +16,8 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.plural 'datalist', 'datalists'
 end
 
-require "watir-webdriver/html/util"
-require "watir-webdriver/html/visitor"
-require "watir-webdriver/html/idl_sorter"
-require "watir-webdriver/html/spec_extractor"
-require "watir-webdriver/html/generator"
+require "sportngin-watir-webdriver/html/util"
+require "sportngin-watir-webdriver/html/visitor"
+require "sportngin-watir-webdriver/html/idl_sorter"
+require "sportngin-watir-webdriver/html/spec_extractor"
+require "sportngin-watir-webdriver/html/generator"

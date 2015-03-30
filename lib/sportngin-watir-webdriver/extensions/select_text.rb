@@ -1,10 +1,10 @@
-Watir::Atoms.load :selectText
+SportNginWatir::Atoms.load :selectText
 
-module Watir
+module SportNginWatir
   class Element
     def select_text(str)
       assert_exists
       execute_atom :selectText, @element, str
     end
   end # Element
-end # Watir
+end # SportNginWatir

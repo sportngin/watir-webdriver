@@ -20,7 +20,7 @@ require 'sportngin-watir-webdriver/locators/child_cell_locator'
 require 'sportngin-watir-webdriver/browser'
 require 'sportngin-watir-webdriver/screenshot'
 
-module Watir
+module SportNginWatir
   @always_locate = true
 
   class << self
@@ -29,7 +29,7 @@ module Watir
     end
 
     #
-    # Whether or not Watir should cache element references or always re-locate an Element on use.
+    # Whether or not SportNginWatir should cache element references or always re-locate an Element on use.
     # Defaults to true.
     #
 
@@ -54,7 +54,7 @@ module Watir
     end
 
     #
-    # Whether or not Watir should prefer CSS when translating the Watir selectors to WebDriver.
+    # Whether or not SportNginWatir should prefer CSS when translating the SportNginWatir selectors to WebDriver.
     # Defaults to false.
     #
 
@@ -113,4 +113,4 @@ require 'sportngin-watir-webdriver/elements/text_field'
 
 require 'sportngin-watir-webdriver/aliases'
 
-Watir.tag_to_class.freeze
+SportNginWatir.tag_to_class.freeze

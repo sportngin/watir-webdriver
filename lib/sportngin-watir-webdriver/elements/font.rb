@@ -1,4 +1,4 @@
-module Watir
+module SportNginWatir
   module Container
     def font(*args)
       Font.new(self, extract_selector(args).merge(:tag_name => "font"))
@@ -8,4 +8,4 @@ module Watir
       FontCollection.new(self, extract_selector(args).merge(:tag_name => "font"))
     end
   end # Container
-end # Watir
+end # SportNginWatir

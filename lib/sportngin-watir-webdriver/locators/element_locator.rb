@@ -1,7 +1,7 @@
 # encoding: utf-8
-module Watir
+module SportNginWatir
   class ElementLocator
-    include Watir::Exception
+    include SportNginWatir::Exception
 
     WD_FINDERS = [
       :class,
@@ -325,7 +325,7 @@ module Watir
     end
 
     def use_css?(selectors)
-      return false unless Watir.prefer_css?
+      return false unless SportNginWatir.prefer_css?
 
       if selectors.has_key?(:text) || selectors.has_key?(:label) || selectors.has_key?(:index)
         return false
@@ -378,7 +378,7 @@ module Watir
         'normalize-space(@href)'
       when :type
         # type attributes can be upper case - downcase them
-        # https://github.com/watir/watir-webdriver/issues/72
+        # https://github.com/watir/sportngin-watir-webdriver/issues/72
         XpathSupport.downcase('@type')
       else
         "@#{key.to_s.gsub("_", "-")}"
@@ -432,4 +432,4 @@ module Watir
     end
 
   end # ElementLocator
-end # Watir
+end # SportNginWatir

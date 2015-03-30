@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Watir
+module SportNginWatir
   class Table < HTMLElement
     include RowContainer
 
@@ -33,7 +33,7 @@ module Watir
     # Returns row of this table with given index.
     #
     # @param [Fixnum] idx
-    # @return Watir::TableRow
+    # @return SportNginWatir::TableRow
     #
 
     def [](idx)
@@ -41,4 +41,4 @@ module Watir
     end
 
   end # Table
-end # Watir
+end # SportNginWatir

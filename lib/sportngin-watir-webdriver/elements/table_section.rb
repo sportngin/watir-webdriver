@@ -1,4 +1,4 @@
-module Watir
+module SportNginWatir
   class TableSection < HTMLElement
     include RowContainer
 
@@ -12,4 +12,4 @@ module Watir
       row(:index => idx)
     end
   end # TableSection
-end # Watir
+end # SportNginWatir

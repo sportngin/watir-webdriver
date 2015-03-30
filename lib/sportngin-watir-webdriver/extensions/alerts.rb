@@ -1,11 +1,11 @@
-module Watir
+module SportNginWatir
 
   #
   # Deprecated, use the new Alert API instead.
   #
   # Module provided by optional require:
   #
-  #   require "watir-webdriver/extensions/alerts"
+  #   require "sportngin-watir-webdriver/extensions/alerts"
   #
 
   module AlertHelper
@@ -18,9 +18,9 @@ module Watir
 
     def alert(&blk)
       warn 'AlertHelper is deprecated. Use the new Alert API instead (e.g. browser.alert.ok)'
-      execute_script "window.alert = function(msg) { window.__lastWatirAlert = msg; }"
+      execute_script "window.alert = function(msg) { window.__lastSportNginWatirAlert = msg; }"
       yield
-      execute_script "return window.__lastWatirAlert"
+      execute_script "return window.__lastSportNginWatirAlert"
     end
 
     #
@@ -31,9 +31,9 @@ module Watir
 
     def confirm(bool, &blk)
       warn 'AlertHelper is deprecated. Use the new Alert API instead (e.g. browser.alert.ok)'
-      execute_script "window.confirm = function(msg) { window.__lastWatirConfirm = msg; return #{!!bool} }"
+      execute_script "window.confirm = function(msg) { window.__lastSportNginWatirConfirm = msg; return #{!!bool} }"
       yield
-      execute_script "return window.__lastWatirConfirm"
+      execute_script "return window.__lastSportNginWatirConfirm"
     end
 
     #
@@ -44,9 +44,9 @@ module Watir
 
     def prompt(answer, &blk)
       warn 'AlertHelper is deprecated. Use the new Alert API instead (e.g. browser.alert.ok)'
-      execute_script "window.prompt = function(text, value) { window.__lastWatirPrompt = { message: text, default_value: value }; return #{MultiJson.encode answer}; }"
+      execute_script "window.prompt = function(text, value) { window.__lastSportNginWatirPrompt = { message: text, default_value: value }; return #{MultiJson.encode answer}; }"
       yield
-      result = execute_script "return window.__lastWatirPrompt"
+      result = execute_script "return window.__lastSportNginWatirPrompt"
 
       result && result.dup.each_key { |k| result[k.to_sym] = result.delete(k)}
       result

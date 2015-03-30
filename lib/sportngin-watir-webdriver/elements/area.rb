@@ -1,5 +1,5 @@
 # encoding: utf-8
-module Watir
+module SportNginWatir
   class Area < HTMLElement
 
     #
@@ -10,4 +10,4 @@ module Watir
     attribute String, :href, :href
 
   end # Area
-end # Watir
+end # SportNginWatir

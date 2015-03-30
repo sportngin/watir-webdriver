@@ -1,6 +1,6 @@
 require 'logger'
 # encoding: utf-8
-module Watir
+module SportNginWatir
 
   #
   # Base class for HTML elements.
@@ -32,7 +32,7 @@ module Watir
       @logger = Logger.new(STDOUT)
       @logger.datetime_format = '%y-%m-#d %H:%M:%S'
       @logger.formatter = proc do |severity, datetime, _, msg|
-        format = "[#{severity} - #{datetime}] - Watir - #{msg}"
+        format = "[#{severity} - #{datetime}] - SportNginWatir - #{msg}"
         if ARGV.any? { |arg| arg == 'h' } #HTML output
           "#{format}<br>"
         else
@@ -40,7 +40,7 @@ module Watir
         end
       end
 
-      @timer = Watir::Wait::Timer.new
+      @timer = SportNginWatir::Wait::Timer.new
       @default_timeout = 20
 
 
@@ -346,7 +346,7 @@ module Watir
     # Sends sequence of keystrokes to element.
     #
     # @example
-    #   browser.text_field(:name => "new_user_first_name").send_keys "Watir", :return
+    #   browser.text_field(:name => "new_user_first_name").send_keys "SportNginWatir", :return
     #
     # @param [String, Symbol] *args
     #
@@ -411,7 +411,7 @@ module Watir
       e = element_call { execute_atom :getParentElement, @element }
 
       if e.kind_of?(Selenium::WebDriver::Element)
-        Watir.element_class_for(e.tag_name.downcase).new(@parent, :element => e)
+        SportNginWatir.element_class_for(e.tag_name.downcase).new(@parent, :element => e)
       end
     end
 
@@ -447,7 +447,7 @@ module Watir
     # Returns true if the element exists and is visible on the page.
     #
     # @return [Boolean]
-    # @see Watir::Wait
+    # @see SportNginWatir::Wait
     #
 
     def present?
@@ -491,7 +491,7 @@ module Watir
     #
     # @example
     #   browser.element(:xpath => "//input[@type='submit']").to_subtype
-    #   #=> #<Watir::Button>
+    #   #=> #<SportNginWatir::Button>
     #
 
     def to_subtype
@@ -514,7 +514,7 @@ module Watir
             TextField
           end
       else
-        klass = Watir.element_class_for(tag_name)
+        klass = SportNginWatir.element_class_for(tag_name)
       end
 
       klass.new(@parent, :element => elem)
@@ -523,7 +523,7 @@ module Watir
     #
     # Returns browser.
     #
-    # @return [Watir::Browser]
+    # @return [SportNginWatir::Browser]
     #
 
     def browser
@@ -536,7 +536,7 @@ module Watir
       begin
         assert_not_stale if @element ||= @selector[:element]
       rescue UnknownObjectException => ex
-        raise ex if @selector[:element] || !Watir.always_locate?
+        raise ex if @selector[:element] || !SportNginWatir.always_locate?
       end
 
       @element ||= locate
@@ -603,15 +603,15 @@ module Watir
     end
 
     def assert_is_element(obj)
-      unless obj.kind_of? Watir::Element
-        raise TypeError, "execpted Watir::Element, got #{obj.inspect}:#{obj.class}"
+      unless obj.kind_of? SportNginWatir::Element
+        raise TypeError, "execpted SportNginWatir::Element, got #{obj.inspect}:#{obj.class}"
       end
     end
 
     def element_call
       yield
     rescue Selenium::WebDriver::Error::StaleElementReferenceError
-      raise unless Watir.always_locate?
+      raise unless SportNginWatir.always_locate?
       reset!
       assert_exists
       retry
@@ -627,4 +627,4 @@ module Watir
     end
 
   end # Element
-end # Watir
+end # SportNginWatir

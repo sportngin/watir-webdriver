@@ -1,10 +1,10 @@
 require File.expand_path('watirspec/spec_helper', File.dirname(__FILE__))
 
-describe Watir::Element do
+describe SportNginWatir::Element do
 
   describe '#present?' do
     before do
-      browser.goto(WatirSpec.url_for("wait.html", :needs_server => true))
+      browser.goto(SportNginWatirSpec.url_for("wait.html", :needs_server => true))
     end
 
     it 'returns true if the element exists and is visible' do
@@ -33,11 +33,11 @@ describe Watir::Element do
 
   describe "#reset!" do
     it "successfully relocates collection elements after a reset!" do
-      browser.goto(WatirSpec.url_for("wait.html", :needs_server => true))
+      browser.goto(SportNginWatirSpec.url_for("wait.html", :needs_server => true))
       element = browser.div(:id, 'foo')
       expect(element).to exist
       browser.refresh
-      expect(element.exist?).to be false unless Watir.always_locate?
+      expect(element.exist?).to be false unless SportNginWatir.always_locate?
       element.send :reset!
       expect(element).to exist
     end
@@ -45,7 +45,7 @@ describe Watir::Element do
 
   describe "#exists?" do
     before do
-      browser.goto WatirSpec.url_for('removed_element.html', :needs_server => true)
+      browser.goto SportNginWatirSpec.url_for('removed_element.html', :needs_server => true)
     end
 
     it "does not propagate StaleElementReferenceErrors" do
@@ -80,7 +80,7 @@ describe Watir::Element do
   describe "#element_call" do
 
     it 'handles exceptions when taking an action on an element that goes stale during execution' do
-      browser.goto WatirSpec.url_for('removed_element.html', :needs_server => true)
+      browser.goto SportNginWatirSpec.url_for('removed_element.html', :needs_server => true)
 
       watir_element = browser.div(:id => "text")
 
@@ -91,7 +91,7 @@ describe Watir::Element do
         watir_element.send(:element_call) { watir_element.instance_variable_get('@element').text }
       end
 
-      if Watir.always_locate?
+      if SportNginWatir.always_locate?
         expect { watir_element.text }.to_not raise_error
       else
         expect { watir_element.text }.to raise_error Selenium::WebDriver::Error::StaleElementReferenceError
@@ -106,7 +106,7 @@ describe Watir::Element do
                      [:webdriver, :iphone],
                      [:webdriver, :safari] do
       it "should hover over the element" do
-        browser.goto WatirSpec.url_for('hover.html', :needs_server => true)
+        browser.goto SportNginWatirSpec.url_for('hover.html', :needs_server => true)
         link = browser.a
 
         expect(link.style("font-size")).to eq "10px"

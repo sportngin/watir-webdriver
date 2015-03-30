@@ -1,5 +1,5 @@
 # encoding: utf-8
-module Watir
+module SportNginWatir
   class Radio < Input
 
     #
@@ -42,4 +42,4 @@ module Watir
       Radio
     end
   end # RadioCollection
-end # Watir
+end # SportNginWatir

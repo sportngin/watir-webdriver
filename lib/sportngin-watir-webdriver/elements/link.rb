@@ -1,5 +1,5 @@
 # encoding: utf-8
-module Watir
+module SportNginWatir
   module Container
     alias_method :link,  :a
     alias_method :links, :as
@@ -16,4 +16,4 @@ module Watir
     attribute String, :href, :href
 
   end # Anchor
-end # Watir
+end # SportNginWatir

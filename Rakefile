@@ -2,7 +2,7 @@ $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 
 require 'rubygems'
 require 'bundler'
-require 'watir-webdriver/version'
+require 'sportngin-watir-webdriver/version'
 Bundler::GemHelper.install_tasks
 
 require 'rspec/core/rake_task'
@@ -27,7 +27,7 @@ namespace :html5 do
   SPEC_PATH = "support/html5.html"
 
   task :html_lib => :lib do
-    require 'watir-webdriver/html'
+    require 'sportngin-watir-webdriver/html'
   end
 
   desc "Download the HTML5 spec from #{SPEC_URI}"
@@ -47,7 +47,7 @@ namespace :html5 do
 
   desc "Print IDL parts from #{SPEC_URI}"
   task :print => :html_lib do
-    extractor = Watir::HTML::SpecExtractor.new(SPEC_PATH)
+    extractor = SportNginWatir::HTML::SpecExtractor.new(SPEC_PATH)
 
     extractor.process.each do |tag_name, interface_definitions|
       puts "#{tag_name.ljust(10)} => #{interface_definitions.map { |e| e.name }}"
@@ -61,10 +61,10 @@ namespace :html5 do
     end
   end
 
-  desc 'Re-generate the base Watir element classes from the spec'
+  desc 'Re-generate the base SportNginWatir element classes from the spec'
   task :generate => :html_lib do
-    old_file = "lib/watir-webdriver/elements/generated.rb"
-    generator = Watir::HTML::Generator.new
+    old_file = "lib/sportngin-watir-webdriver/elements/generated.rb"
+    generator = SportNginWatir::HTML::Generator.new
 
     File.open("#{old_file}.new", "w") do |file|
       generator.generate(SPEC_PATH, file)
@@ -77,7 +77,7 @@ namespace :html5 do
 
   desc 'Move generated.rb.new to generated.rb'
   task :overwrite do
-    file = "lib/watir-webdriver/elements/generated.rb"
+    file = "lib/sportngin-watir-webdriver/elements/generated.rb"
     mv "#{file}.new", file
   end
 

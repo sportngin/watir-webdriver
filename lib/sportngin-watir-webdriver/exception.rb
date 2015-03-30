@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Watir
+module SportNginWatir
   module Exception
     class Error < StandardError; end
 
@@ -16,4 +16,4 @@ module Watir
     class UnknownRowException < Error; end
 
   end # Exception
-end # Watir
+end # SportNginWatir

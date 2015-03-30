@@ -4,16 +4,16 @@ require 'sportngin-watir-webdriver/version'
 
 Gem::Specification.new do |s|
   s.name        = 'sportngin-watir-webdriver'
-  s.version     = Watir::VERSION
+  s.version     = SportNginWatir::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Jari Bakken', 'Aaron Humerickhouse']
   s.email       = ['jari.bakken@gmail.com', 'aaron.humerickhouse@sportngin.com']
-  s.homepage    = 'http://github.com/sportngin/watir-webdriver'
-  s.summary     = %q{Watir on WebDriver}
-  s.description = %q{WebDriver-backed Watir}
+  s.homepage    = 'http://github.com/sportngin/sportngin-watir-webdriver'
+  s.summary     = %q{SportNginWatir on WebDriver}
+  s.description = %q{WebDriver-backed SportNginWatir}
   s.license     = 'MIT'
 
-  s.rubyforge_project = 'watir-webdriver'
+  s.rubyforge_project = 'sportngin-watir-webdriver'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

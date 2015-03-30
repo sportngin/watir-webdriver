@@ -1,5 +1,5 @@
 # encoding: utf-8
-module Watir
+module SportNginWatir
   class Image < HTMLElement
 
     #
@@ -60,4 +60,4 @@ module Watir
      alias_method :image, :img
      alias_method :images, :imgs
   end # Container
-end # Watir
+end # SportNginWatir

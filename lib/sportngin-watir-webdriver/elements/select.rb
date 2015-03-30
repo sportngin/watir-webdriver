@@ -1,7 +1,7 @@
 # encoding: utf-8
-module Watir
+module SportNginWatir
   class Select < HTMLElement
-    include Watir::Exception
+    include SportNginWatir::Exception
 
     #
     # Returns true if this element is enabled
@@ -31,7 +31,7 @@ module Watir
     #
     # Gets all the options in the select list
     #
-    # @return [Watir::OptionCollection]
+    # @return [SportNginWatir::OptionCollection]
     #
 
     def options
@@ -56,7 +56,7 @@ module Watir
     # If this is a multi-select and several options match the value given, all will be selected.
     #
     # @param [String, Regexp] str_or_rx
-    # @raise [Watir::Exception::NoValueFoundException] if the value does not exist.
+    # @raise [SportNginWatir::Exception::NoValueFoundException] if the value does not exist.
     # @return [String] The text of the option selected. If multiple options match, returns the first match.
     #
 
@@ -70,7 +70,7 @@ module Watir
     # @see +select+
     #
     # @param [String, Regexp] str_or_rx
-    # @raise [Watir::Exception::NoValueFoundException] if the value does not exist.
+    # @raise [SportNginWatir::Exception::NoValueFoundException] if the value does not exist.
     # @return [String] The option selected. If multiple options match, returns the first match
     #
 
@@ -82,7 +82,7 @@ module Watir
     # Returns true if any of the selected options' text or label matches the given value.
     #
     # @param [String, Regexp] str_or_rx
-    # @raise [Watir::Exception::UnknownObjectException] if the options do not exist
+    # @raise [SportNginWatir::Exception::UnknownObjectException] if the options do not exist
     # @return [Boolean]
     #
 
@@ -117,7 +117,7 @@ module Watir
     #
     # Returns an array of currently selected options.
     #
-    # @return [Array<Watir::Option>]
+    # @return [Array<SportNginWatir::Option>]
     #
 
     def selected_options
@@ -232,6 +232,6 @@ module Watir
     alias_method :select_list,  :select
     alias_method :select_lists, :selects
 
-    Watir.tag_to_class[:select_list] = Select
+    SportNginWatir.tag_to_class[:select_list] = Select
   end # Container
-end # Watir
+end # SportNginWatir

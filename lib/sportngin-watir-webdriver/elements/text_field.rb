@@ -1,9 +1,9 @@
 # encoding: utf-8
-module Watir
+module SportNginWatir
   class TextField < Input
     include UserEditable
 
-    inherit_attributes_from Watir::TextArea
+    inherit_attributes_from SportNginWatir::TextArea
     remove_method :type # we want Input#type here, which was overriden by TextArea's attributes
 
     private
@@ -41,4 +41,4 @@ module Watir
       TextField
     end
   end # TextFieldCollection
-end # Watir
+end # SportNginWatir

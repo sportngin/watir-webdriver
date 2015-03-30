@@ -1,5 +1,5 @@
 # encoding: utf-8
-module Watir
+module SportNginWatir
   class FileField < Input
 
     #
@@ -42,4 +42,4 @@ module Watir
       FileField
     end
   end # FileFieldCollection
-end # Watir
+end # SportNginWatir

@@ -1,4 +1,4 @@
-module Watir
+module SportNginWatir
   class TextFieldLocator < ElementLocator
 
     NON_TEXT_TYPES     = %w[file radio checkbox submit reset image button hidden datetime date month week time datetime-local range color]
@@ -85,4 +85,4 @@ module Watir
     end
 
   end # TextFieldLocator
-end # Watir
+end # SportNginWatir

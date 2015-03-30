@@ -1,4 +1,4 @@
-module Watir
+module SportNginWatir
   class TableRow < HTMLElement
     include CellContainer
 
@@ -8,7 +8,7 @@ module Watir
     #
     # Get the n'th cell (<th> or <td>) of this row
     #
-    # @return Watir::TableCell
+    # @return SportNginWatir::TableCell
     #
 
     def [](idx)
@@ -41,4 +41,4 @@ module Watir
       @locator_class || super
     end
   end # TableRowCollection
-end # Watir
+end # SportNginWatir

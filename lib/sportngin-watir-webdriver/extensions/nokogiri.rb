@@ -1,6 +1,6 @@
 require "nokogiri"
 
-module Watir
+module SportNginWatir
   class Browser
 
     def text
@@ -11,4 +11,4 @@ module Watir
     end
 
   end # Browser
-end # Watir
+end # SportNginWatir

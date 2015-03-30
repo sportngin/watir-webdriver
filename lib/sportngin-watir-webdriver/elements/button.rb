@@ -1,5 +1,5 @@
 # encoding: utf-8
-module Watir
+module SportNginWatir
 
   #
   # Class representing button elements.
@@ -9,7 +9,7 @@ module Watir
 
   class Button < HTMLElement
 
-    inherit_attributes_from Watir::Input
+    inherit_attributes_from SportNginWatir::Input
 
     VALID_TYPES = %w[button reset submit image]
 
@@ -63,4 +63,4 @@ module Watir
       Button
     end
   end # ButtonsCollection
-end # Watir
+end # SportNginWatir

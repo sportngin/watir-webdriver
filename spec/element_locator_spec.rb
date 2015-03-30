@@ -1,6 +1,6 @@
 require File.expand_path("spec_helper", File.dirname(__FILE__))
 
-describe Watir::ElementLocator do
+describe SportNginWatir::ElementLocator do
   include LocatorSpecHelper
 
   describe "finds a single element" do
@@ -15,7 +15,7 @@ describe Watir::ElementLocator do
 
     describe "with selectors not supported by webdriver" do
       it "handles selector with tag name and a single attribute" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_one :css, 'div[title="foo"]'
         else
           expect_one :xpath, ".//div[@title='foo']"
@@ -26,7 +26,7 @@ describe Watir::ElementLocator do
       end
 
       it "handles selector with no tag name and and a single attribute" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_one :css, '[title="foo"]'
         else
           expect_one :xpath, ".//*[@title='foo']"
@@ -36,7 +36,7 @@ describe Watir::ElementLocator do
       end
 
       it "handles single quotes in the attribute string" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_one :css, %{[title="foo and 'bar'"]}
         else
           expect_one :xpath, %{.//*[@title=concat('foo and ',"'",'bar',"'",'')]}
@@ -46,7 +46,7 @@ describe Watir::ElementLocator do
       end
 
       it "handles selector with tag name and multiple attributes" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_one :css, 'div[title="foo"][dir="bar"]'
         else
           expect_one :xpath, ".//div[@title='foo' and @dir='bar']"
@@ -58,7 +58,7 @@ describe Watir::ElementLocator do
       end
 
       it "handles selector with no tag name and multiple attributes" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_one :css, '[dir="foo"][title="bar"]'
         else
           expect_one :xpath, ".//*[@dir='foo' and @title='bar']"
@@ -85,7 +85,7 @@ describe Watir::ElementLocator do
       end
 
       it "translates :class_name to :class" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_one :css, "div.foo"
         else
           expect_one :xpath, ".//div[contains(concat(' ', @class, ' '), ' foo ')]"
@@ -96,7 +96,7 @@ describe Watir::ElementLocator do
       end
 
       it "handles data-* attributes" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_one :css, 'div[data-name="foo"]'
         else
           expect_one :xpath, ".//div[@data-name='foo']"
@@ -107,7 +107,7 @@ describe Watir::ElementLocator do
       end
 
       it "handles aria-* attributes" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_one :css, 'div[aria-label="foo"]'
         else
           expect_one :xpath, ".//div[@aria-label='foo']"
@@ -118,7 +118,7 @@ describe Watir::ElementLocator do
       end
 
       it "normalizes space for the :href attribute" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_one :css, 'a[href~="foo"]'
         else
           expect_one :xpath, ".//a[normalize-space(@href)='foo']"
@@ -129,7 +129,7 @@ describe Watir::ElementLocator do
           :href     => "foo"
         }
 
-        locate_one selector, Watir::Anchor.attributes
+        locate_one selector, SportNginWatir::Anchor.attributes
       end
 
       it "wraps :type attribute with translate() for upper case values" do
@@ -141,7 +141,7 @@ describe Watir::ElementLocator do
           :type    , "file",
         ]
 
-        locate_one selector, Watir::Input.attributes
+        locate_one selector, SportNginWatir::Input.attributes
       end
 
       it "uses the corresponding <label>'s @for attribute or parent::label when locating by label" do
@@ -154,18 +154,18 @@ describe Watir::ElementLocator do
           :label   , "foo"
         ]
 
-        locate_one selector, Watir::Input.attributes
+        locate_one selector, SportNginWatir::Input.attributes
       end
 
       it "uses label attribute if it is valid for element" do
         expect_one :xpath, ".//option[@label='foo']"
 
         selector = { :tag_name => "option", :label => "foo" }
-        locate_one selector, Watir::Option.attributes
+        locate_one selector, SportNginWatir::Option.attributes
       end
 
       it "translates ruby attribute names to content attribute names" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_one :css, 'meta[http-equiv="foo"]'
         else
           expect_one :xpath, ".//meta[@http-equiv='foo']"
@@ -176,7 +176,7 @@ describe Watir::ElementLocator do
           :http_equiv => "foo"
         }
 
-        locate_one selector, Watir::Meta.attributes
+        locate_one selector, SportNginWatir::Meta.attributes
 
         # TODO: check edge cases
       end
@@ -189,7 +189,7 @@ describe Watir::ElementLocator do
           element(:tag_name => "div", :attributes => { :class => "foob"})
         ]
 
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_all(:css, "div").and_return(elements)
         else
           expect_all(:xpath, ".//div").and_return(elements)
@@ -204,7 +204,7 @@ describe Watir::ElementLocator do
           element(:tag_name => "div", :attributes => { :class => "foo" })
         ]
 
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_all(:css, "div").and_return(elements)
         else
           expect_all(:xpath, ".//div").and_return(elements)
@@ -257,7 +257,7 @@ describe Watir::ElementLocator do
           element(:tag_name => "div", :attributes => { :dir => "foo", :title => "baz" })
         ]
 
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_all(:css, 'div[dir="foo"]').and_return(elements)
         else
           expect_all(:xpath, ".//div[@dir='foo']").and_return(elements)
@@ -279,7 +279,7 @@ describe Watir::ElementLocator do
           element(:tag_name => "div", :attributes => { :'data-automation-id' => "bar" })
         ]
 
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_all(:css, 'div').and_return(elements)
         else
           expect_all(:xpath, ".//div").and_return(elements)
@@ -303,7 +303,7 @@ describe Watir::ElementLocator do
 
         expect_all(:tag_name, "label").ordered.and_return(label_elements)
 
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_all(:css, 'div[id="baz"]').ordered.and_return(div_elements)
         else
           expect_all(:xpath, ".//div[@id='baz']").ordered.and_return(div_elements)
@@ -326,7 +326,7 @@ describe Watir::ElementLocator do
         element(:tag_name => "div")
       ]
 
-      if Watir.prefer_css?
+      if SportNginWatir.prefer_css?
         expect_all(:css, 'div[dir="foo"]').and_return(elements)
       else
         expect_all(:xpath, ".//div[@dir='foo']").and_return(elements)
@@ -349,7 +349,7 @@ describe Watir::ElementLocator do
         :xpath    => "//div"
       }
 
-      expect(locate_one(selector, Watir::Input.attributes)).to be_nil
+      expect(locate_one(selector, SportNginWatir::Input.attributes)).to be_nil
     end
 
     describe "errors" do
@@ -365,10 +365,10 @@ describe Watir::ElementLocator do
 
       it "raises a MissingWayOfFindingObjectException if the attribute is not valid" do
         bad_selector = {:tag_name => "input", :href => "foo"}
-        valid_attributes = Watir::Input.attributes
+        valid_attributes = SportNginWatir::Input.attributes
 
         expect { locate_one(bad_selector, valid_attributes) }.to \
-        raise_error(Watir::Exception::MissingWayOfFindingObjectException, "invalid attribute: :href")
+        raise_error(SportNginWatir::Exception::MissingWayOfFindingObjectException, "invalid attribute: :href")
       end
     end
   end
@@ -385,7 +385,7 @@ describe Watir::ElementLocator do
 
     describe "with an empty selector" do
       it "finds all when an empty selctor is given" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_all :css, '*'
         else
           expect_all :xpath, './/*'
@@ -397,7 +397,7 @@ describe Watir::ElementLocator do
 
     describe "with selectors not supported by webdriver" do
       it "handles selector with tag name and a single attribute" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_all :css, 'div[dir="foo"]'
         else
           expect_all :xpath, ".//div[@dir='foo']"
@@ -408,7 +408,7 @@ describe Watir::ElementLocator do
       end
 
       it "handles selector with tag name and multiple attributes" do
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_all :css, 'div[dir="foo"][title="bar"]'
         else
           expect_all :xpath, ".//div[@dir='foo' and @title='bar']"
@@ -429,7 +429,7 @@ describe Watir::ElementLocator do
           element(:tag_name => "div", :attributes => { :class => "noob"})
         ]
 
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_all(:css, "div").and_return(elements)
         else
           expect_all(:xpath, ".//div").and_return(elements)
@@ -445,7 +445,7 @@ describe Watir::ElementLocator do
           element(:tag_name => "div", :attributes => { :dir => "foo", :title => "bazt"})
         ]
 
-        if Watir.prefer_css?
+        if SportNginWatir.prefer_css?
           expect_all(:css, 'div[dir="foo"]').and_return(elements)
         else
           expect_all(:xpath, ".//div[@dir='foo']").and_return(elements)

@@ -1,4 +1,4 @@
-module Watir
+module SportNginWatir
   class ChildRowLocator < ElementLocator
 
     def locate_all
@@ -34,4 +34,4 @@ module Watir
     end
 
   end # ChildRowLocator
-end # Watir
+end # SportNginWatir

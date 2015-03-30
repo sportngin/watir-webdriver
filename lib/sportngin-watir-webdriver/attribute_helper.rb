@@ -1,4 +1,4 @@
-module Watir
+module SportNginWatir
 
   #
   # @private
@@ -93,4 +93,4 @@ module Watir
     end
 
   end # AttributeHelper
-end # Watir
+end # SportNginWatir

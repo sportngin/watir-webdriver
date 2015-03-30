@@ -11,14 +11,14 @@ class ImplementationConfig
     set_guard_proc
     add_html_routes
 
-    WatirSpec.always_use_server = mobile? || ie? || safari? || phantomjs? || remote?
+    SportNginWatirSpec.always_use_server = mobile? || ie? || safari? || phantomjs? || remote?
   end
 
   private
 
   def set_webdriver
     @imp.name          = :webdriver
-    @imp.browser_class = Watir::Browser
+    @imp.browser_class = SportNginWatir::Browser
   end
 
   def set_browser_args
@@ -64,7 +64,7 @@ class ImplementationConfig
 
   def set_guard_proc
     matching_browser = remote? ? remote_browser : browser
-    browser_instance = WatirSpec.new_browser
+    browser_instance = SportNginWatirSpec.new_browser
     browser_version = browser_instance.driver.capabilities.version
     matching_browser_with_version = "#{matching_browser}#{browser_version}".to_sym
     matching_guards = [
@@ -137,7 +137,7 @@ class ImplementationConfig
   def add_html_routes
     glob = File.expand_path("../html/*.html", __FILE__)
     Dir[glob].each do |path|
-      WatirSpec::Server.get("/#{File.basename path}") { File.read(path) }
+      SportNginWatirSpec::Server.get("/#{File.basename path}") { File.read(path) }
     end
   end
 
@@ -146,7 +146,7 @@ class ImplementationConfig
   end
 
   def remote_browser
-    remote_browser = WatirSpec.new_browser
+    remote_browser = SportNginWatirSpec.new_browser
     remote_browser.browser.name
   ensure
     remote_browser.close
@@ -186,4 +186,4 @@ class ImplementationConfig
   end
 end
 
-ImplementationConfig.new(WatirSpec.implementation).configure
+ImplementationConfig.new(SportNginWatirSpec.implementation).configure

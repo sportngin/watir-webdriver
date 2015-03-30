@@ -1,4 +1,4 @@
-module Watir
+module SportNginWatir
   module RowContainer
 
     #
@@ -39,4 +39,4 @@ module Watir
     alias_method :to_a, :strings
 
   end # RowContainer
-end # Watir
+end # SportNginWatir

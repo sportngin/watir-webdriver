@@ -18,7 +18,7 @@ module SportNginWatir
     #
 
     def clear
-      @timer.wait(@default_timeout) { present? }
+      self.wait_until_present(@default_timeout)
       assert_exists
 
       raise Error, "you can only clear multi-selects" unless multiple?
@@ -140,6 +140,7 @@ module SportNginWatir
     end
 
     def select_by_string(how, string)
+      self.wait_until_present(@default_timeout)
       xpath = option_xpath_for(how, string)
 
       if multiple?
@@ -166,6 +167,7 @@ module SportNginWatir
     end
 
     def select_by_regexp(how, exp)
+      self.wait_until_present(@default_timeout)
       elements = element_call do
         @element.find_elements(:tag_name, 'option')
       end

@@ -10,6 +10,7 @@ module SportNginWatir
     #
 
     def set(path)
+      self.wait_until_present(@default_timeout)
       raise Errno::ENOENT, path unless File.exist?(path)
       self.value = path
     end

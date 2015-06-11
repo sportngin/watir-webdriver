@@ -7,7 +7,7 @@ module SportNginWatir
     #
 
     def set
-      @timer.wait(@default_timeout) { present? }
+      self.wait_until_present(@default_timeout)
       click unless set?
     end
 
@@ -18,7 +18,7 @@ module SportNginWatir
     #
 
     def set?
-      @timer.wait(@default_timeout) { present? }
+      self.wait_until_present(@default_timeout)
       assert_exists
       element_call { @element.selected? }
     end

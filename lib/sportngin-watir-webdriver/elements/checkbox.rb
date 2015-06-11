@@ -17,7 +17,7 @@ module SportNginWatir
     #
 
     def set(bool = true)
-      @timer.wait(@default_timeout) { present? }
+      self.wait_until_present(@default_timeout)
       set? == bool ? assert_enabled : click
     end
 
@@ -36,7 +36,7 @@ module SportNginWatir
     #
 
     def clear
-      @timer.wait(@default_timeout) { present? }
+      self.wait_until_present(@default_timeout)
       set false
     end
 

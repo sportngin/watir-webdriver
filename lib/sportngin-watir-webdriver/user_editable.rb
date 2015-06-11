@@ -8,6 +8,7 @@ module SportNginWatir
     #
 
     def set(*args)
+      self.wait_until_present(@default_timeout)
       clear
       element_call { @element.send_keys(*args) }
     end
@@ -20,6 +21,7 @@ module SportNginWatir
     #
 
     def append(*args)
+      self.wait_until_present(@default_timeout)
       send_keys(*args)
     end
     alias_method :<<, :append
@@ -29,6 +31,7 @@ module SportNginWatir
     #
 
     def clear
+      self.wait_until_present(@default_timeout)
       assert_exists
       assert_writable
       element_call { @element.clear }

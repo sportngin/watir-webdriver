@@ -6,14 +6,12 @@ Gem::Specification.new do |s|
   s.name        = "watir-webdriver"
   s.version     = Watir::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Jari Bakken"]
-  s.email       = ["jari.bakken@gmail.com"]
-  s.homepage    = "http://github.com/watir/watir-webdriver"
+  s.authors     = ['Aaron Humerickhouse']
+  s.email       = ['a.humerickhouse@sportngin.com']
+  s.homepage    = "http://github.com/sportngin/watir-webdriver"
   s.summary     = %q{Watir on WebDriver}
   s.description = %q{WebDriver-backed Watir}
   s.license     = 'MIT'
-
-  s.rubyforge_project = "watir-webdriver"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

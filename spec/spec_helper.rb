@@ -1,26 +1,25 @@
-# encoding: utf-8
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
 require 'coveralls'
 Coveralls.wear!
 
-require 'sportngin-watir-webdriver'
+require 'watir-webdriver'
 require 'locator_spec_helper'
 require 'rubygems'
 require 'rspec'
 
-include SportNginWatir
+include Watir
 
 if ENV['ALWAYS_LOCATE'] == "false"
-  SportNginWatir.always_locate = false
+  Watir.always_locate = false
 end
 
 if ENV['PREFER_CSS']
-  SportNginWatir.prefer_css = true
+  Watir.prefer_css = true
 end
 
-WEBDRIVER_SELECTORS = [:class, :class_name, :css, :id, :tag_name, :xpath]
+WEBDRIVER_SELECTORS = %i(class class_name css id tag_name xpath)
 
 if ENV['TRAVIS']
   ENV['DISPLAY'] = ":99.0"

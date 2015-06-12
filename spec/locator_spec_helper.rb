@@ -6,8 +6,8 @@ module LocatorSpecHelper
   end
 
   def locator(selector, attrs)
-    attrs ||= SportNginWatir::HTMLElement.attributes
-    SportNginWatir::ElementLocator.new(driver, selector, attrs)
+    attrs ||= Watir::HTMLElement.attributes
+    Watir::ElementLocator.new(driver, selector, attrs)
   end
 
   def expect_one(*args)
@@ -28,7 +28,7 @@ module LocatorSpecHelper
 
   def element(opts = {})
     attrs = opts.delete(:attributes)
-    el = double(SportNginWatir::Element, opts)
+    el = double(Watir::Element, opts)
 
     attrs.each do |key, value|
       el.stub(:attribute).with(key).and_return(value)

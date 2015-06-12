@@ -1,7 +1,7 @@
 require File.expand_path('watirspec/spec_helper', File.dirname(__FILE__))
 
-describe SportNginWatir::Container do
-  before { @container = Object.new.extend(SportNginWatir::Container) }
+describe Watir::Container do
+  before { @container = Object.new.extend(Watir::Container) }
 
   describe "#extract_selector" do
     before do
@@ -11,11 +11,11 @@ describe SportNginWatir::Container do
     end
 
     it "converts 2-arg selector into a hash" do
-      expect(@container.public_extract_selector([:how, 'what'])).to eq Hash[:how => 'what']
+      expect(@container.public_extract_selector([:how, 'what'])).to eq Hash[how: 'what']
     end
 
     it "returns the hash given" do
-      expect(@container.public_extract_selector([:how => "what"])).to eq Hash[:how => "what"]
+      expect(@container.public_extract_selector([how: "what"])).to eq Hash[how: "what"]
     end
 
     it "returns an empty hash if given no args" do

@@ -11,14 +11,14 @@ class ImplementationConfig
     set_guard_proc
     add_html_routes
 
-    SportNginWatirSpec.always_use_server = mobile? || ie? || safari? || phantomjs? || remote?
+    WatirSpec.always_use_server = mobile? || ie? || safari? || phantomjs? || remote?
   end
 
   private
 
   def set_webdriver
     @imp.name          = :webdriver
-    @imp.browser_class = SportNginWatir::Browser
+    @imp.browser_class = Watir::Browser
   end
 
   def set_browser_args
@@ -35,7 +35,7 @@ class ImplementationConfig
 
     if ENV['SELECTOR_STATS']
       listener = SelectorListener.new
-      args.last.merge!(:listener => listener)
+      args.last.merge!(listener: listener)
       at_exit { listener.report }
     end
 
@@ -64,7 +64,7 @@ class ImplementationConfig
 
   def set_guard_proc
     matching_browser = remote? ? remote_browser : browser
-    browser_instance = SportNginWatirSpec.new_browser
+    browser_instance = WatirSpec.new_browser
     browser_version = browser_instance.driver.capabilities.version
     matching_browser_with_version = "#{matching_browser}#{browser_version}".to_sym
     matching_guards = [
@@ -102,13 +102,13 @@ class ImplementationConfig
     profile = Selenium::WebDriver::Firefox::Profile.new
     profile.native_events = native_events?
 
-    [:firefox, {:profile => profile}]
+    [:firefox, {profile: profile}]
   end
 
   def chrome_args
     opts = {
-      :args          => ["--disable-translate"],
-      :native_events => native_events?
+      args: ["--disable-translate"],
+      native_events: native_events?
     }
 
     if url = ENV['WATIR_WEBDRIVER_CHROME_SERVER']
@@ -131,13 +131,13 @@ class ImplementationConfig
   end
 
   def remote_args
-    [:remote, {:url => ENV["WATIR_WEBDRIVER_REMOTE_URL"] || "http://127.0.0.1:8080"}]
+    [:remote, {url: ENV["WATIR_WEBDRIVER_REMOTE_URL"] || "http://127.0.0.1:8080"}]
   end
 
   def add_html_routes
     glob = File.expand_path("../html/*.html", __FILE__)
     Dir[glob].each do |path|
-      SportNginWatirSpec::Server.get("/#{File.basename path}") { File.read(path) }
+      WatirSpec::Server.get("/#{File.basename path}") { File.read(path) }
     end
   end
 
@@ -146,7 +146,7 @@ class ImplementationConfig
   end
 
   def remote_browser
-    remote_browser = SportNginWatirSpec.new_browser
+    remote_browser = WatirSpec.new_browser
     remote_browser.browser.name
   ensure
     remote_browser.close
@@ -186,4 +186,4 @@ class ImplementationConfig
   end
 end
 
-ImplementationConfig.new(SportNginWatirSpec.implementation).configure
+ImplementationConfig.new(WatirSpec.implementation).configure

@@ -126,7 +126,7 @@ module Watir
     def wd_find_first_by(how, what)
       if what.kind_of? String
         @wd.find_element(how, what) unless how == :jquery
-        @wd.execute_script('return ' + what + '[0];') if how == :jquery
+        @wd.execute_script('return $(' + what + ')[0];') if how == :jquery
       else
         all_elements.find { |element| fetch_value(element, how) =~ what } unless how == :jquery
       end
@@ -135,7 +135,7 @@ module Watir
     def wd_find_all_by(how, what)
       if what.kind_of? String
         @wd.find_elements(how, what)
-        @wd.execute_script('return ' + what + ';') if how == :jquery
+        @wd.execute_script('return $( ' + what + ');') if how == :jquery
       else
         all_elements.select { |element| fetch_value(element, how) =~ what }
       end

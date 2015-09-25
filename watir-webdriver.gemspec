@@ -3,20 +3,21 @@ $:.push File.expand_path("../lib", __FILE__)
 require "watir-webdriver/version"
 
 Gem::Specification.new do |s|
-  s.name        = "watir-webdriver"
-  s.version     = Watir::VERSION
-  s.platform    = Gem::Platform::RUBY
-  s.authors     = ['Aaron Humerickhouse']
-  s.email       = ['a.humerickhouse@sportngin.com']
-  s.homepage    = "http://github.com/sportngin/watir-webdriver"
-  s.summary     = %q{Watir on WebDriver}
-  s.description = %q{WebDriver-backed Watir}
-  s.license     = 'MIT'
+  s.name                    = "watir-webdriver"
+  s.version                 = Watir::VERSION
+  s.platform                = Gem::Platform::RUBY
+  s.authors                 = ['Aaron Humerickhouse']
+  s.email                   = ['a.humerickhouse@sportngin.com']
+  s.homepage                = "http://github.com/sportngin/watir-webdriver"
+  s.summary                 = %q{Watir on WebDriver}
+  s.description             = %q{WebDriver-backed Watir}
+  s.license                 = 'MIT'
+  s.required_ruby_version   = '~> 2.0.0'
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+  s.files                   = `git ls-files`.split("\n")
+  s.test_files              = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables             = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths           = ["lib"]
 
   s.add_dependency "selenium-webdriver", '>= 2.44'
 

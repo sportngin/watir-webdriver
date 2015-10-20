@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary                 = %q{Watir on WebDriver}
   s.description             = %q{WebDriver-backed Watir}
   s.license                 = 'MIT'
-  s.required_ruby_version   = '~> 2.0.0'
+  s.required_ruby_version   = '~> 1.9.3'
 
   s.files                   = `git ls-files`.split("\n")
   s.test_files              = `git ls-files -- {test,spec,features}/*`.split("\n")
